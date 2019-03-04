@@ -1,0 +1,110 @@
+<html>
+	<title>我想学java web知识</title>
+	<head>
+		<script language="JavaScript">
+			function func(i , j , k ){
+				return i+j+k;
+			}
+			alert("hello world, 肖伟");
+			alert("数字相加的结果是："+func(1,2,3));
+			
+			function  arrayFunc(){
+				var  arr = new Array("hello","nihao","hi");
+				var array = new Array(3);
+				for(i = 0;i < 3;i++){
+					array[i] = i;  // 逐个给数组的元素赋值
+				}
+				str = "数组中的内容是：";
+				for( i = 0;i< 3 ;i++){
+					str += array[i]+"、"
+				}
+				alert(str);
+			}
+			arrayFunc();
+			
+			function hello(){
+				alert("hello , 欢迎光临");
+			}
+			function bye(){
+				alert("你好， 欢迎下次光临"); 
+			}
+			function show(){
+				var name = document.myform.name.value; //找个整个页面中名为myform的form标记，然后在找到该form表单下的名为"name"的控件，并获取该控件的value值
+				var age = document.myform.age.value;
+				var sex = document.myform.sex.value;
+				alert(" 姓名："+name + "  年龄："+age+ "  性别："+sex);
+			}
+			function validate(f){
+				var value = f.email.value;
+				if( !/^\w+@\w+.\w+$/.test(value)){
+					alert("Email 输入格式不正确！")
+					f.email.focus();  //让焦点定位到email框
+					f.email.select(); //选中email框中的所有内容
+					return false;
+				}
+				return true;			
+			}
+			function info(){
+				var name= document.thirdform.name.value;
+				var sex ="";
+				if(document.thirdform.sex[0].checked){ 
+					sex = document.thirdform.sex[0].value;  
+				}else{
+					sex = document.thirdform.sex[1].value;
+				}
+				var habits="";
+				for(i = 0;i<document.thirdform.habits.length;i++){
+					if(document.thirdform.habits[i].checked){
+						habits += document.thirdform.habits[i].value+"、";
+					}
+				}
+				var edu= document.thirdform.education.value;
+				alert("姓名："+name+"\n性别： "+sex+" \n爱好： "+habits+"\n学历："+edu);
+			}
+			function closeWin(){
+			    if(window.confirm("确认关闭窗口?")){
+					window.close();	 //关闭当前窗口
+				}
+			}
+		</script>
+	</head>
+	<body onLoad = "hello()"  onUnLoad="bye()">  <!-- 让整个页面在加载时调用hello()函数，在页面关闭时调用bye()函数 -->
+		------------- 第一个表单 ------------------
+		<form action="" method="post" name="myform">
+			姓名：<input type="text" name="name">
+			年龄：<input type="text" name="age">
+			性别：<input type="text" name="sex">
+			提交：<input type="button" value="显示" onclick="show()"> 
+		</form>
+		-------------- 第二个表单 -----------------
+		<form action="" method="post" name="secondform" onSubmit="return validate(this)">  <!--这里的this代表当前form对象，此时调用validate函数主要来验证email的格式是否正确，如果函数返回true，该表单的所有内容就可以提交到action属性指定.jsp去处理，如果函数返回false，则该表单的内容不会被提交 -->
+			Email：<input type="text" name="email">
+			提交：<input type="submit" value="显示">  <!-- 提交按钮，可以直接将表单提交到有form中action属性指定的.jsp,如hello.jsp -->
+		</form>
+		--------------- 第三个表单 ----------------
+		<form action="jspDemo.jsp" method="post" name="thirdform">
+			姓名：<input type="text" name="name"> <br>
+			性别：<input type="radio" name="sex" value="男" checked>男
+				  <input type="radio" name="sex" value="女" >女<br>
+			兴趣：<input type="checkbox" name="habits" value="唱歌">唱歌
+				  <input type="checkbox" name="habits" value="游泳">游泳
+				  <input type="checkbox" name="habits" value="书法">书法
+				  <input type="checkbox" name="habits" value="编程" checked>编程
+				  <input type="checkbox" name="habits" value="上网">上网 <br>
+			学历：<select name="education">		      <!--属性值不能有多的空格 -->
+						<option value="本科">本科</option>
+						<option value="硕士">硕士</option>
+						<option value="博士">博士</option>
+				  </select> <br>
+			提交：<input type="button" value="显示" onClick="info()">
+ 		</form>
+		
+		<h3>
+			<a href="#" onClick="closeWin()">关闭窗口</a>
+		</h3>
+		
+		
+	
+	
+	</body>
+</html>
