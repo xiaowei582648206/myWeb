@@ -40,6 +40,15 @@
 		<servlet-name>hello</servlet-name>
 		<url-pattern>/helloServlet</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>input</servlet-name>
+		<servlet-class>com.hnu.cloudmining.servletApp.InputServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>input</servlet-name>
+		<url-pattern>/servlet/inputServlet</url-pattern>
+	</servlet-mapping>
  </web-app>
  
  
