@@ -15,6 +15,7 @@
 			<input type="submit" value="查询">
 			<input type="reset" value="重置">
 		</form>
+		<h3>插入记录，请点<a href="emp_insert.jsp">这里</a><h3>
 		</center>
 		<%
 			request.setCharacterEncoding("utf-8");
