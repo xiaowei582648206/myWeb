@@ -16,7 +16,7 @@
 			String name = request.getParameter("name");
 			String password = request.getParameter("password");
 			if(name!=null && !("".equals(name))){
-				session.setAttribute("name",name+"_"+password);
+				session.setAttribute("name",name);
 				response.sendRedirect("list.jsp");
 			}
 		%>

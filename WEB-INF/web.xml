@@ -49,6 +49,15 @@
 		<servlet-name>input</servlet-name>
 		<url-pattern>/servlet/inputServlet</url-pattern>
 	</servlet-mapping>
+	
+	
+	<listener>
+		<listener-class>com.hnu.cloudmining.servletApp.OnlineUserList</listener-class>
+	</listener>
+	
+	<session-config>
+		<session-timeout>1</session-timeout>
+	</session-config>
  </web-app>
  
  

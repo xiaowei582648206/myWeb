@@ -9,9 +9,9 @@
 			Set<String>  users = (Set<String>)this.getServletContext().getAttribute("online_users");
 			Iterator it = users.iterator();
 			while(it.hasNext()){
-				String user = it.next();
+				String user = (String)it.next();
 		%>
-				<h3><%==user%></h3>
+				<h3><%=user%></h3>
 		<%
 			}
 		%>
