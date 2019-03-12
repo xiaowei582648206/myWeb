@@ -24,12 +24,12 @@
 			boolean flag = dao.doCreate(emp);
 			if(flag){
 		%>
-				<h2>记录插入成功！</h2>
+				<h2>记录插入成功！查询员工信息请点<a href="emp_search.jsp">这里</h2>
 				
 		<%		
 			}else{
 		%>
-				<h2>记录插入失败！</h2>
+				<h2>记录插入失败！查询员工信息请点<a href="emp_search.jsp">这里</a></h2>
 		<%
 			}
 		%>
