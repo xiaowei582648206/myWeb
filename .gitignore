@@ -1,2 +1,2 @@
 WEB-INF/classes/conf/jdbc.properties
-WEB-INF/classes/**
+WEB-INF/classes/com/
