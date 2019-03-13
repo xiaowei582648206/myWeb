@@ -56,7 +56,7 @@
 	</listener>
 	
 	<session-config>
-		<session-timeout>1</session-timeout>
+		<session-timeout>1</session-timeout> <!-- if the seesion has no move out of 1 minutes , the session will be destroyed -->
 	</session-config>
  </web-app>
  
