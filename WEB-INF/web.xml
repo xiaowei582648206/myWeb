@@ -13,7 +13,7 @@
 	<error-code>500</error-code>    
 	<location>/error.jsp</location>
   </error-page>
-    <error-page>
+  <error-page>
 	<error-code>404</error-code> 
 	<location>/error.jsp</location>
   </error-page>
@@ -22,6 +22,27 @@
 	<location>/error.jsp</location>
   </error-page>
   -->
+  
+  	<listener>  
+		<listener-class>com.hnu.cloudmining.servletApp.OnlineUserList</listener-class>
+	</listener>
+	
+	<!-- if the seesion has no action exceed 1 minutes , the session will be destroyed automaticly,  defualt timeout is 30 minutes -->
+	<!-- 
+	<session-config>
+		<session-timeout>1</session-timeout> 
+	</session-config>
+	-->
+	
+	<filter>  
+		<filter-name>userLoginFilter</filter-name>
+		<filter-class>com.hnu.cloudmining.servletApp.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>userLoginFilter</filter-name>
+		<url-pattern>/servlet/loginFilter/*</url-pattern>  <!-- when the client access the any resources in path of /servlet/LoginFilter/, the userLoginGFilter funcion will be executed automaticly   -->
+	</filter-mapping>
+  
 	<servlet>  										
 		<servlet-name>hi</servlet-name>    <!--  servlet could be a jps file , or class -->
 		<jsp-file>/WEB-INF/hello.jsp</jsp-file> 	
@@ -51,13 +72,7 @@
 	</servlet-mapping>
 	
 	
-	<listener>
-		<listener-class>com.hnu.cloudmining.servletApp.OnlineUserList</listener-class>
-	</listener>
-	
-	<session-config>
-		<session-timeout>1</session-timeout> <!-- if the seesion has no move out of 1 minutes , the session will be destroyed -->
-	</session-config>
+
  </web-app>
  
  
