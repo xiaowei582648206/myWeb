@@ -70,6 +70,16 @@
 		<url-pattern>/servlet/inputServlet</url-pattern>
 	</servlet-mapping>
 	
+	
+	<servlet>
+		<servlet-name>input2</servlet-name>
+		<servlet-class>com.hnu.cloudmining.servletApp.UploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>input2</servlet-name>
+		<url-pattern>/fileUpload/servlet/UploadServlet</url-pattern>
+	</servlet-mapping>
+	
 	<jsp-config>
 		<taglib>
 			<taglib-uri>http://www.apache.org/jstl/core</taglib-uri>

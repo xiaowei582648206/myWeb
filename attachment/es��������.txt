@@ -1,0 +1,68 @@
+1、查看customer索引下external类型下的所有内容
+curl -XGET 'http://prod-fhcb-09-es001:9200/customer/external/_search?pretty'
+
+2、向customer索引external类型下插入数据，随机生成文档id
+curl -H "Content-Type:application/json" -XPOST 'http://prod-fhcb-09-es001:9200/customer/external' -d '{"name":"zhangsan"}'
+
+3、向customer索引external类型下插入数据，并制定文档的id为1
+curl -H "Content-Type:application/json" -XPUT 'http://prod-fhcb-09-es001:9200/customer/external/1' -d '{ "name":"xiaowei"}'
+
+4、查看customer索引external类型下id为1的文档内容
+curl -XGET 'http://prod-fhcb-09-es001:9200/customer/external/1?pretty=true'
+
+5、查看所有的索引
+curl 'http://prod-fhcb-09-es001:9200/_cat/indices?v'
+
+6、查询customer索引下所有内容，使用match_all进行查询，并且只返回第一个文档，size指定命中的文档数，不指定size默认返回10条
+curl -XPOST 'http://prod-fhcb-09-es001:9200/customer/_search?pretty' -d 
+'{ 
+	"query":{"match_all":{}}, 
+	"size":1
+}'
+
+
+7、查看customer索引下所有内容，并指定从第10个文档开始，返回20个文档
+curl -XPOST 'http://prod-fhcb-09-es001:9200/customer/_search?pretty' -d 
+'{ 
+	"query":{"match_all":{}},   
+	"from":10,
+	"size":20
+}'
+
+8、查询姓名为"xiaowei"的记录
+curl -XPOST 'http://prod-fhcb-09-es001:9200/customer/_search?pretty' -d'{
+	"query":{
+				"match":{"name":"xiaowei"}
+			}
+}'
+
+9、查询姓名为xiaowei，并且年龄为20的记录,也可以修改bool参数， 除了must,还有should（或），must_not（不包括）
+curl -XPOST 'http://prod-fhcb-09-es001:9200/customer/_search?pretty' -d '{
+	"query":{
+		"bool":{
+			"must":[
+				{"match":{"name":"xiawei"}},
+				{"match":{"age":"20"}}
+			]
+		}
+	}
+}'
+
+
+
+
+
+10、查询某一个索引下的所有数据
+curl 'prod-fhcb-09-es001:9200/customer/_search?pretty'
+
+
+
+
+
+
+
+
+
+
+
+
